@@ -1,0 +1,9 @@
+.btns
+{
+    background-color: transparent;
+    border: none;
+}
+
+.btns :hover{
+    cursor: pointer;
+}

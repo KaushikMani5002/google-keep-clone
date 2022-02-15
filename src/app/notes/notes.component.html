@@ -26,12 +26,12 @@
             <mat-icon>color_lens</mat-icon>
         </button>
         <mat-menu #colours="matMenu">
-            <div mat-menu-item>
-                <button (click)="changeColor('#F5F5F5')"><img src="../../assets/white.png"></button>
-                <button (click)="changeColor('#95D1CC')"><img src="../../assets/blue.png"></button>
-                <button (click)="changeColor('#FFC900')"><img src="../../assets/yellow.png"></button>
-                <button (click)="changeColor('#D3ECA7')"><img src="../../assets/green.png"></button>
-                <button (click)="changeColor('#B33030')"><img src="../../assets/red.png"></button>
+            <div mat-menu-item class="color-options">
+                <button (click)="changeColor('#F5F5F5')" class="btns"><img src="../../assets/cancel.png"></button>
+                <button (click)="changeColor('#95D1CC')" class="btns"><img src="../../assets/blue.png"></button>
+                <button (click)="changeColor('#FFC900')" class="btns"><img src="../../assets/yellow.png"></button>
+                <button (click)="changeColor('#D3ECA7')" class="btns"><img src="../../assets/green.png"></button>
+                <button (click)="changeColor('#B33030')" class="btns"><img src="../../assets/red.png"></button>
             </div>
             <!--<button mat-menu-item class="color" > <img src="../../assets/red.png"></button>
             <button mat-menu-item class="color" ><img src="../../assets/blue.png"></button>
@@ -56,7 +56,7 @@
             <div *ngIf="item.title != undefined && item.content != undefined">
             <mat-card-title>{{item.title}}</mat-card-title>
             <mat-card-content>{{item.content.length>400 ? item.content.slice(0, 400) + "..." : item.content}}</mat-card-content>
-            <div *ngIf="allnotes[note_number].urls.length > 0">
+            <div *ngIf="allnotes[note_number].urls.length > 0" style="display: inline-block">
                 <div *ngFor="let image of allnotes[note_number].urls">
                     <img [src]="image" height="20px" width="30px">
                 </div>

@@ -27,3 +27,15 @@
     clear: both;
     width: 80%;
   }
+
+
+  .btns
+  {
+      background-color: transparent;
+      border: none;
+  }
+
+  .btns :hover
+  {
+      cursor: pointer;
+  }
