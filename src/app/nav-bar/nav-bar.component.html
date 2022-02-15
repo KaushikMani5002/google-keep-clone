@@ -1,0 +1,33 @@
+<div class="top-navbar">
+    <div class="icons">
+        <a id="menu" title="Main Menu"><input type="image" src="../../assets/menu icon 4.svg" title="Keep" (mouseover)="notify.emit()" (click)="notify.emit()"></a>
+    </div>
+    <div class="icons" style="margin-left: 20px; margin-top: 5px; cursor: pointer;" title="Keep" >
+        <img src="../../assets/GKeep.png">
+    </div>
+    <div class="icons" id="keep" style="font-size: 22px; margin-top: 15px; margin-left: 10px;">
+        Keep
+    </div>
+    <div class="icons" style="margin-left: 300px;">
+        <a id="search-form">
+            <form>
+                <button id="search-btn"  style="height: 40px; width: 40px; opacity: 50%;">
+                    <input type="image" src="../../assets/search icon 4.svg" alt="submit" title="Search">
+                </button>
+                <input type="search" placeholder="Search" style="margin-bottom: 3px; margin-left: 5px; font-size: 18px;">
+            </form>
+        </a>
+        <button mat-button [matMenuTriggerFor]="menu" id="settings-menu"><mat-icon>settings</mat-icon></button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Settings</button>
+            <button mat-menu-item>Enable dark theme</button>
+            <button mat-menu-item>Send feedback</button>
+            <button mat-menu-item>Help</button>
+            <button mat-menu-item>App downloads</button>
+            <button mat-menu-item>Keyboard shortcuts</button>
+        </mat-menu>
+    </div>
+</div>
+
+
+

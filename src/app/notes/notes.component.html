@@ -1,0 +1,67 @@
+<!--<div class="main-card">
+<mat-card>
+    <mat-card-title><input type="text" placeholder="Title"></mat-card-title>
+    <mat-card-content><input type="text" placeholder="Content"></mat-card-content>
+    <mat-card-actions><button mat-button style="margin-left: 45%;">Add</button></mat-card-actions>
+</mat-card>
+</div> -->
+
+<div class="main-card">
+<mat-card *ngIf="imageurl.length>0">
+    <div *ngFor="let url of imageurl" style="display: inline-block;">
+        <img [src]="url" height="100px" width="150px">
+    </div>
+</mat-card>
+<mat-expansion-panel hideToggle="true" style="background-color: {{bgcolor}};">
+    <mat-expansion-panel-header class="disable-ripple">
+    <div class="mat-title">
+        <mat-panel-title>
+            <input type="text" id="title" [(ngModel)]="note_title" placeholder="Take a note.." style="margin-top: 17px; height: 36px; width: 500px; border: none; outline: none; background-color: {{bgcolor}};">
+        </mat-panel-title>
+    </div>
+    </mat-expansion-panel-header>
+    <textarea style="margin-top: 17px; height: 90px; width: 500px; border: none; outline: none; resize: none; background-color: {{bgcolor}};" [(ngModel)]="note_desc" placeholder="Description.."></textarea>
+    <mat-action-row>
+        <button mat-icon-button [matMenuTriggerFor]="colours" >
+            <mat-icon>color_lens</mat-icon>
+        </button>
+        <mat-menu #colours="matMenu">
+            <div mat-menu-item>
+                <button (click)="changeColor('#F5F5F5')"><img src="../../assets/white.png"></button>
+                <button (click)="changeColor('#95D1CC')"><img src="../../assets/blue.png"></button>
+                <button (click)="changeColor('#FFC900')"><img src="../../assets/yellow.png"></button>
+                <button (click)="changeColor('#D3ECA7')"><img src="../../assets/green.png"></button>
+                <button (click)="changeColor('#B33030')"><img src="../../assets/red.png"></button>
+            </div>
+            <!--<button mat-menu-item class="color" > <img src="../../assets/red.png"></button>
+            <button mat-menu-item class="color" ><img src="../../assets/blue.png"></button>
+            <button mat-menu-item class="color" ><img src="../../assets/yellow.png"></button>
+            <button mat-menu-item class="color" ><img src="../../assets/green.png"></button>
+            <button mat-menu-item class="color" ><img src="../../assets/red.png"></button>-->
+        </mat-menu>
+        <button mat-icon-button>
+            <mat-icon>brush</mat-icon>
+        </button>
+        <input type="file" id="input_image" accept="image/*" #file hidden (change)="onChange($event)">
+        <button mat-icon-button (click)="file.click()">
+            <mat-icon>add_photo_alternate</mat-icon>
+        </button>
+        <button mat-raised-button (click)="onSubmit();">Add</button>
+    </mat-action-row>
+</mat-expansion-panel>
+</div>
+<div class="row" >
+    <div *ngFor="let item of allnotes; let note_number = index" class="column">
+        <mat-card class="cards" (click)="openDialog(note_number+1, item.title, item.content, allnotes[note_number].color, item.urls)" id="{{note_number}}" style="background-color: {{allnotes[note_number].color}};">
+            <div *ngIf="item.title != undefined && item.content != undefined">
+            <mat-card-title>{{item.title}}</mat-card-title>
+            <mat-card-content>{{item.content.length>400 ? item.content.slice(0, 400) + "..." : item.content}}</mat-card-content>
+            <div *ngIf="allnotes[note_number].urls.length > 0">
+                <div *ngFor="let image of allnotes[note_number].urls">
+                    <img [src]="image" height="20px" width="30px">
+                </div>
+            </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

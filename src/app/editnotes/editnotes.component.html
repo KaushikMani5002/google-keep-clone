@@ -1,0 +1,26 @@
+<div mat-dialog-title>
+    <input type="text" value="{{data.title}}" [(ngModel)]="data.title" style="width: 300px; border: none; outline: none;">
+</div>
+<mat-dialog-content>
+    <textarea cols="30" rows="10" [(ngModel)]="data.desc" style="width: 300px; border: none; outline: none; resize: none;">{{data.desc}}</textarea>
+</mat-dialog-content>
+<div *ngIf="data.urls.length>0">
+    <div *ngFor="let url of data.urls">
+        <img [src]="url" height="80" width="110">
+    </div>
+</div>
+<mat-action-list>
+    <button mat-icon-button [matMenuTriggerFor]="colours" >
+        <mat-icon>color_lens</mat-icon>
+    </button>
+    <mat-menu #colours="matMenu">
+        <div mat-menu-item>
+            <button (click)="changeColor('#F5F5F5', 'White')"><img src="../../assets/white.png"></button>
+            <button (click)="changeColor('#95D1CC', 'Blue')"><img src="../../assets/blue.png"></button>
+            <button (click)="changeColor('#FFC900', 'Yellow')"><img src="../../assets/yellow.png"></button>
+            <button (click)="changeColor('#D3ECA7', 'Green')"><img src="../../assets/green.png"></button>
+            <button (click)="changeColor('#B33030', 'Red')"><img src="../../assets/red.png"></button>
+        </div>
+    </mat-menu>
+    <button mat-raised-button mat-dialog-close mat-dialog-close="{{[data.title,data.desc, data.id, newcolor]}}">Apply Changes</button>
+</mat-action-list>

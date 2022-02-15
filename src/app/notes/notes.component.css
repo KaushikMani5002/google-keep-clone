@@ -1,0 +1,29 @@
+.main-card
+{
+    width: 40%;
+    margin-left: 25%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+.cards{
+    display: inline-block;
+    width:80%;
+    height: auto;
+    margin: 10px;
+}
+
+.column {
+    float: left;
+    width: 20%;
+    max-height: 50vh;
+    overflow-wrap: break-word;
+  }
+
+ .row:after {
+    display: flex;
+    clear: both;
+    width: 80%;
+  }
