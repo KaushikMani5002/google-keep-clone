@@ -1,9 +1,9 @@
 mat-sidenav-container
 {
     margin-top: 63px;
+    margin-left: -7px;
     height: 90.1vh;
 }
-
 
 .side-navbar
 {
@@ -16,7 +16,7 @@ mat-sidenav-container
     opacity: 65%;    
     height: 5px;
     width: 50px;
-    margin-left: -5px;
+    margin-left: 0px;
     margin-right: -92px;
 }
 

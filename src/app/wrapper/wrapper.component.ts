@@ -7,9 +7,15 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class WrapperComponent implements OnInit {
   isExpanded: boolean = false;
+
+  component_name: string = 'notes';
   constructor() { }
 
   ngOnInit(): void {
+  }
+  Call(componentName: string)
+  {
+    this.component_name = componentName;
   }
 
 }
